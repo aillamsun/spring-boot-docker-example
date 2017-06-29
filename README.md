@@ -74,6 +74,10 @@ mvn clean package
 
 ```
 
+> * 仓库显示
+![image](http://i4.piimg.com/1949/cbae0533906098da.jpg)
+
+
 # 测试
 
 ```bash
