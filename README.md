@@ -1,9 +1,47 @@
 # spring-boot-docker-example
-spring-boot-docker-example
 
+使用 maven docker插件  将image 上传到 阿里云仓库
+
+
+# 环境准备
 
 
 # 运行准备
+
+配置 settings.xml配置私有库的访问
+ 
+> * 首先使用你的私有仓库访问密码生成主密码：<password> 为 阿里云 docker仓库密码
+
+```bash
+mvn --encrypt-master-password <password>
+```
+
+> * 其次在settings.xml文件的同级目录创建settings-security.xml文件，将主密码写入
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settingsSecurity>
+  <master>{Ns0JM49fW9gHMTZ44n*****************=}</master>
+</settingsSecurity>
+```
+
+> * 最后使用你的私有仓库访问密码生成服务密码，将生成的密码写入到settings.xml的<services>中：
+
+```bash
+mvn --encrypt-password <password>
+```
+
+
+```xml
+<server>
+    <id>docker-aliyun</id>
+    <username>***sungang@gmail.com</username>
+    <password>{D9YIyWYvtYsHayLjIenj***********=}</password>
+    <configuration>
+    <email>***sungang@gmail.com</email>
+    </configuration>
+</server>
+```
 
 
 #### 1 获取
