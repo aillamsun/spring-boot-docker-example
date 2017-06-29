@@ -5,9 +5,6 @@
 
 # 环境准备
 
-
-# 运行准备
-
 配置 settings.xml配置私有库的访问
  
 > * 首先使用你的私有仓库访问密码生成主密码：password 为 阿里云 docker仓库密码
@@ -43,6 +40,8 @@ mvn --encrypt-password <password>
 </server>
 ```
 
+
+# 运行准备
 
 #### 1 获取
 
