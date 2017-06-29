@@ -83,11 +83,6 @@ mvn clean package
 # 测试
 
 
-
-
-# 测试
-
-
 ```bash
 sudo docker pull registry.cn-hangzhou.aliyuncs.com/williamsun/spring-boot-docker-example:[镜像版本号]
 ```
