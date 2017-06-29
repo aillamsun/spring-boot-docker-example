@@ -2,6 +2,8 @@
 
 使用 maven docker插件  将image 上传到 阿里云仓库
 
+增加 mysql 容器协同 web 配置
+
 
 # 环境准备
 
@@ -80,19 +82,60 @@ mvn clean package
 
 # 测试
 
+
+
+
+# 测试
+
+
 ```bash
 sudo docker pull registry.cn-hangzhou.aliyuncs.com/williamsun/spring-boot-docker-example:[镜像版本号]
 ```
 
-#### 运行images
 
-```base
-sudo docker run -i -t -p 80:8080 registry.cn-hangzhou.aliyuncs.com/williamsun/spring-boot-docker-example:[镜像版本号]
+
+### 首先安装docker mysql 
+
+```bash
+sudo docker pull mysql:5.6.35
+```
+
+> * 启动
+
+```bash
+$ sudo docker run --name mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=my-pw -d mysql:5.6.35
 ```
 
 
-#### 访问
+### 链接数据 导入数据脚本 resource/db
+
+> * docker-example.sql
+
+
+### 修改 application-test.properties 注意 ip哪里直接用  运行web 容易时候的 --link mysql:mysql
+
+```properties
+spring.datasource.url=jdbc:mysql://mysql:3306/docker-example?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+```
+
+### 启动 web   --link mysql:mysql
+
+```bash
+sudo docker run -i -t  -p 80:8080 --name web --link mysql:mysql registry.cn-hangzhou.aliyuncs.com/williamsun/spring-boot-docker-example:latest
+```
+
+### 访问
 ```base
 http://localhost
 ```
+
+![image](http://i2.kiimg.com/1949/c9639683e4d9947f.jpg)
+
+### 点击我...
+
+![image](http://i2.kiimg.com/1949/9ecf4e264bb95f05.jpg)
+----
+![image](http://i2.kiimg.com/1949/130efeb77bf2cce0.jpg)
+
+
 
