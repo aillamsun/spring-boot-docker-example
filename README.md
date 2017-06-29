@@ -59,10 +59,10 @@ git clone https://github.com/aillamsun/spring-boot-docker-example.git
 > * pom.xml
 
 ```xml
-     <!-- 阿里云 仓库 地址-->
-    <docker.repostory>registry.cn-hangzhou.aliyuncs.com</docker.repostory>
-    <!-- 命名空间 仓库地址-->
-    <docker.registry.name>williamsun/spring-boot-docker-example</docker.registry.name>    
+<!-- 阿里云 仓库 地址-->
+<docker.repostory>registry.cn-hangzhou.aliyuncs.com</docker.repostory>
+<!-- 命名空间 仓库地址-->
+<docker.registry.name>williamsun/spring-boot-docker-example</docker.registry.name>    
 ```
 
 > * mvn
