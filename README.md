@@ -4,6 +4,11 @@
 
 增加 mysql 容器协同 web 配置
 
+使用技术:
+Spring boot 1.5.1 
+Mybatis 通用分页 通用Mapper
+Swagger-UI
+
 
 # 环境准备
 
