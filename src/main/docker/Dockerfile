@@ -19,7 +19,7 @@ EXPOSE 8080
 #USER user:group
 
 #VOLUME
-VOLUME ["/home/project", "/tmp/data"]
+#VOLUME ["/home/project", "/tmp/data"]
 
 #ADD
 ADD $APP_NAME $WORK_PATH/
