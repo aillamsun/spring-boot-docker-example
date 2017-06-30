@@ -136,7 +136,7 @@
     <build>
         <resources><!-- 输出Dockerfile至docker文件夹 -->
             <resource>
-                <directory>${project.basedir}/src/main/docker</directory>
+                <directory>src/main/docker</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>**/Dockerfile</include>
@@ -175,6 +175,9 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
+
+
+
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -195,7 +198,7 @@
                     </execution>
                     <execution>
                         <id>push-image</id>
-                        <phase>deploy</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>push</goal>
                         </goals>
@@ -204,19 +207,20 @@
                         </configuration>
                     </execution>
                 </executions>
+
+
+
                 <configuration>
                     <serverId>docker-aliyun</serverId>
                     <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
                     <!-- <forceTags>true</forceTags> -->
                     <pushImage>false</pushImage>
                     <dockerDirectory>target/docker</dockerDirectory>
-                    <imageName>
-                        ${docker.repostory}/${docker.registry.name}:${project.version}
-                    </imageName>
-                    <imageTags>
-                        <imageTag>${git.commit.id.abbrev}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
+                    <imageName>${docker.repostory}/${docker.registry.name}:${project.version}</imageName>
+                    <!--<imageTags>-->
+                        <!--<imageTag>${git.commit.id.abbrev}</imageTag>-->
+                        <!--<imageTag>latest</imageTag>-->
+                    <!--</imageTags>-->
                     <resources>
                         <rescource><!-- 将打包文件放入dockerDirectory指定的位置 -->
                             <targetPath>/</targetPath>

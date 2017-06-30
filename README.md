@@ -72,14 +72,22 @@ git clone https://github.com/aillamsun/spring-boot-docker-example.git
 <docker.registry.name>williamsun/spring-boot-docker-example</docker.registry.name>    
 ```
 
-> * mvn
-
+> * mvn clean package --> docker:build
 
 ```bash
 
 mvn clean package
 
 ```
+
+> * mvn install --> docker:push
+
+```bash
+
+mvn install
+
+```
+
 
 > * 仓库显示
 ![image](http://i4.piimg.com/1949/cbae0533906098da.jpg)
